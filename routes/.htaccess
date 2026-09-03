@@ -1,0 +1,4 @@
+RewriteEngine On
+# redirect all other requests to index.php
+rewriteCond %{REQUEST_FILENAME} !\.(gif|jpe?g|png|js|css|swf|ico|pdf|xml|exe|docx|doc|csv|txt|PDF|jpg|pptx|ppt|JPG|xls|xlsx|json|npmignore|sass|scss|sass-cache|less|idea|sass-cache|html|zip|rar)$
+rewriteRule ^.*$ index.php [L]
