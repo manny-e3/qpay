@@ -154,16 +154,13 @@ class PaymentGatewayController extends Controller
      * @param  int  $appId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function saveAppConfig(Request $request, $appId)
+    public function saveAppConfig(Request $request, $appId = null)
     {
-        $app = \App\Services\AuthService::getAndPersistApp($appId);
-
-        if (!$app) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Application not found'
-            ], 404);
-        }
+        $appId = $request->input('app_id') 
+            ?? $request->input('app_config_id') 
+            ?? $request->input('appId') 
+            ?? $request->input('id') 
+            ?? $appId;
 
         $validator = Validator::make($request->all(), [
             'gateways' => 'required|array',

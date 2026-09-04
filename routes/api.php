@@ -141,7 +141,7 @@ Route::prefix('payment-gateways')->group(function () {
     Route::get('/{gatewayId}', [ApiPaymentGatewayController::class, 'show']);
     Route::put('/{gatewayId}', [ApiPaymentGatewayController::class, 'update']);
     Route::get('/app-config/{appId}', [ApiPaymentGatewayController::class, 'appConfig']);
-    Route::post('/app-config/{appId}', [ApiPaymentGatewayController::class, 'saveAppConfig']);
+    Route::post('/app-config/{appId?}', [ApiPaymentGatewayController::class, 'saveAppConfig']);
 });
 
 // Logs and Response Configuration Endpoints
