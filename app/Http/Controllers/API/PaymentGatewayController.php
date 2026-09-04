@@ -197,7 +197,7 @@ class PaymentGatewayController extends Controller
                 $callbackUrl = $globalCallbackUrl ?? $gatewayInput['callback_url'] ?? null;
 
                 AppPaymentGateway::updateOrCreate(
-                    ['app_config_id' => $app->id, 'payment_gateway_id' => $gatewayId],
+                    ['app_config_id' => $appId, 'payment_gateway_id' => $gatewayId],
                     [
                         'config' => [],
                         'is_active' => $isActive,
